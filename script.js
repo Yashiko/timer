@@ -1,7 +1,7 @@
 $(document).ready(function(){
-let value = $("#minutesInput").val();
 
 if ($("#playBtn").click(function(){
+let value = $("#minutesInput").val();
 $(".bottom-selection").html(value);
 
 }));
