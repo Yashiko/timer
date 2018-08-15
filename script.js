@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    let paused = false;
+    let running = true;
 
 //if you pressed start button, you will start timer
     $("#playBtn").click(function(){
         //read input value
         let minuteInput = $("#minutesInput").val(); 
         let timer2 = minuteInput + ":00";
-        let running = true;
+    
 
         //timer mechanism
         
@@ -36,12 +36,13 @@ $(document).ready(function(){
 // if you press stop button it will stop timer
         $(document).on("click","#stopBtn", function() {
             clearInterval(interval); 
-            running = false
+            running = false;
             console.log(timer2); 
+            $("#resumeBtn").click(function(){
+                running = true;
+             });
          });
-         $(document).on("click","#resumeBtn", function() {
-            running = true;
-         });
+
         
          
     });  
