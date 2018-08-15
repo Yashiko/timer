@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    let minute = $("#minutesInput").val();
-    let timer2 = minute +":00";
 
     $("#playBtn").click(function(){
+        let minuteInput = $("#minutesInput").val();
+        let timer2 = minuteInput+":00";
         let interval = setInterval(function(){
             let timer = timer2.split(":");
             let minutes = parseInt(timer[0], 10);
