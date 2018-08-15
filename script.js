@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    let minutes = $("#minutesInput").val();
-    let timer2 = minutes;
-    $("#playBtn").click(function(){
+    let minute = $("#minutesInput").val();
+    let timer2 = minute +":00";
 
+    $("#playBtn").click(function(){
         let interval = setInterval(function(){
             let timer = timer2.split(":");
             let minutes = parseInt(timer[0], 10);
@@ -13,12 +13,19 @@ $(document).ready(function(){
             seconds = (seconds < 0) ? 59 : seconds;
             seconds = (seconds < 10) ? '0' + seconds : seconds;
             $(".bottom-selection").html(minutes+ ":"+ seconds);
-            if (minutes < 0) clearInterval(interval);
-            if ((seconds <= 0) && (minutes <= 0)) clearInterval(interval);
-            timer2 = minutes + ':' + seconds;
+            // if (minutes < 0){
+            //     clearInterval(interval);
+            // }    
+            if ((seconds <= 0) && (minutes <= 0)){
+                clearInterval(interval);
+                alert("Times Up");
+            } else{
+                timer2 = minutes + ':' + seconds;
+            }
+           
     
         }, 1000);
-    })
+    });  
 
 });
 
