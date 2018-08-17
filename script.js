@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    let audio = new Audio('beep.mp3');
 //if you pressed start button, you will start timer
     $("#playBtn").click(function(){
         //read input value
@@ -17,9 +17,11 @@ $(document).ready(function(){
                 seconds = (seconds < 0) ? 59 : seconds;
                 seconds = (seconds < 10) ? '0' + seconds : seconds;
                 $(".bottom-selection").html(minutes+ ":"+ seconds); //put time value
-                    if ((seconds <= 0) && (minutes <= 0) && (!running)) {
+                    if ((seconds <= 0) && (minutes <= 0)) {
                         clearInterval(interval);
-                        alert("Times Up");
+                        audio.play();
+                        // alert("Times Up");
+
                     } else{
                         timer2 = minutes + ':' + seconds;
                     }
@@ -31,7 +33,7 @@ $(document).ready(function(){
         $(document).on("click","#stopBtn", function() {
             running = false;
             clearInterval(interval); 
-            
+
          });
 
 
