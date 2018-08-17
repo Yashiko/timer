@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    let running = false;
 
 //if you pressed start button, you will start timer
     $("#playBtn").click(function(){
@@ -9,9 +8,7 @@ $(document).ready(function(){
     
 
         //timer mechanism
-
             let interval = setInterval(function(){  
-
                 let timer = timer2.split(":");
                 let minutes = parseInt(timer[0], 10);
                 let seconds = parseInt(timer[1], 10);
@@ -20,7 +17,6 @@ $(document).ready(function(){
                 seconds = (seconds < 0) ? 59 : seconds;
                 seconds = (seconds < 10) ? '0' + seconds : seconds;
                 $(".bottom-selection").html(minutes+ ":"+ seconds); //put time value
-
                     if ((seconds <= 0) && (minutes <= 0) && (!running)) {
                         clearInterval(interval);
                         alert("Times Up");
@@ -35,11 +31,7 @@ $(document).ready(function(){
         $(document).on("click","#stopBtn", function() {
             running = false;
             clearInterval(interval); 
-
-            console.log(timer2); 
-            $("#resumeBtn").click(function(){
-                running = true;
-             });
+            
          });
 
 
