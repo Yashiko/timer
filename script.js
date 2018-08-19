@@ -2,6 +2,18 @@ $(document).ready(function () {
     let audio = new Audio('beep.mp3');
     //if you pressed start button, you will start timer
     $("#playBtn").click(function () {
+        //if field is empty
+        let failed = false;
+        $('#minutesInput').each(function(){
+            if ($(this).val() == ""){
+                failed = true;
+            }
+        });
+        if (failed == true){
+            alert("please fill out field.");
+            clearInterval(interval);
+        }
+
         //read input value
         let minuteInput = $("#minutesInput").val();
         let timer2 = minuteInput + ":00";
